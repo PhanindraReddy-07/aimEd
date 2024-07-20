@@ -2,11 +2,21 @@
 body{
             overflow-x: hidden;
         }
+        #navbar{
+            background-color: #0300b89e;
+            padding: 4px 4px 0px 4px;
+        }
         #navbar i{
             display: none;
         }
         #navbar a, button{
             animation: fadeIn .7s ease-in-out;
+        }
+        #navbar img{
+            margin: 0;
+            padding: 0;
+            width: 180px;
+            height: 140px;
         }
         .carousel {
             position: relative;
@@ -126,15 +136,16 @@ body{
             display: flex;
             justify-content: space-around;
             padding: 20px;
-            background-color: blue 100;
             color: white;
         }
         .footer-links ul li:hover {
             color: #212e3c;
         }
+        footer{
+            background-color: #0300b89e;
+        }
         .footer-info {
             padding: 20px;
-            background-color:blue 100;
             color: white;
         }
         .footer-social {
@@ -142,7 +153,6 @@ body{
             justify-content: space-around;
             align-items: center;
             padding: 20px;
-            background-color: blue 100;
         }
         .footer-social a {
             color: white;

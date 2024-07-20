@@ -14,6 +14,7 @@
         #imgctz img{
             width: 150px;
             height: 150px;
+            border-radius: 50%;
             transition: transform 2s ease-in;
         }
         #imgctz img:hover{
@@ -29,13 +30,14 @@
             color:white;
         }
         #abtus{
-            background-image: linear-gradient(rgba(141, 127, 127, 0.313),rgba(141, 114, 114, 0.313)),url("image1.jpg");
+            background-color: #0300b89e;
         }
         #login  input{
         outline: none;
         margin: 10px;
         border: 1px solid black;
         }
+        
         @media only screen and (max-width:786px){
             #catg div{
                 margin: 0;
@@ -55,9 +57,9 @@
 </head>
 <body class="bg-gray-100">
     <!-- Navbar -->
-    <nav class="bg-blue-600 p-4" id="navbar">
+    <nav id="navbar">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="index.html" class="text-white text-2xl font-bold">AimEd Abroad Services</a>
+            <a href="index.html"><img src="svg trans.svg"></a>
             <button class="pl-2 text-white block md:hidden focus:outline-none" id="buttonUl" onclick="openUl()">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
@@ -135,7 +137,7 @@
                     <h3 class="text-2xl font-bold mb-4" style="color: rgb(0, 0, 0);">GMAT</h3>
                 </div>
                 <div class="bg-red-600 p-6 rounded shadow">
-                    <h3 class="text-2xl font-bold mb-4" style="color: aliceblue;">SAT</h3>
+                    <h3 class="text-2xl font-bold mb-4" style="color: aliceblue;">DUOLINGO</h3>
                 </div>
                 <div class="p-6 rounded shadow" id="ieltsclr">
                     <h3 class="text-2xl font-bold mb-4" style="color: aliceblue;">IELTS</h3>
@@ -150,17 +152,17 @@
 <!-- About Us Section -->
 <section class="py-10" id="abtus">
     <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center mb-8">ABOUT US</h2>
+        <h2 class="text-3xl text-white font-bold text-center mb-8">ABOUT US</h2>
         <div class="flex flex-col md:flex-row items-center">
             <div class="md:w-1/2 md:pl-8 mt-8 md:mt-0">
-                <p class="text-black" style="font-family: Dubai; font-size:20px;">AimEd is an innovative, progressive, successful, and professionally managed company focused on one of the core sectors of the economy – Overseas Education. 
+                <p class="text-white" style="font-family: Dubai; font-size:20px;">AimEd is an innovative, progressive, successful, and professionally managed company focused on one of the core sectors of the economy – Overseas Education. 
                     AimEd is owned and managed by professionals with proven credentials in the industry. AimEd is an undisputed company and a leader in terms of quality, innovative products, and services.
-                    AimEd acts as an internationally recognized support system for 21st-century education for bridging the education divide.<p class="text-black" style="font-family: Dubai; font-size:20px;" id="abtp">
+                    AimEd acts as an internationally recognized support system for 21st-century education for bridging the education divide.<p class="text-white" style="font-family: Dubai; font-size:20px;" id="abtp">
                     AimEd recognizes that the Bachelor’s/Master’s programs by various foreign universities/colleges, professional development programs, and academic partnerships between foreign universities/colleges and Indian institutions are extremely useful in meeting the rapidly growing Indian educational needs.
                     These programs contribute to the goal of preparing students to compete in the global economy. AimEd is working closely with more than 250 universities in the USA, UK, Australia, New Zealand, Canada, Singapore, France, and Germany to meet the ever-growing demand for overseas education.</p><a href="aboutus.html" style="text-decoration: underline; color:blue;">read more..</a></p>
             </div>
             <div class="md:w-1/2 ml-40" id="abtimg">
-                <img src="https://via.placeholder.com/500x500" alt="About Us" class="rounded shadow">
+                <img src="svg trans.svg" alt="About Us" class="rounded shadow">
             </div>
         </div>
     </div>
@@ -169,9 +171,9 @@
     <!-- Immigration & Citizenship Section -->
     <section class="py-16 bg-gray-100" id="imgctz">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-2"><p style="font-family: Dubai;">Our Best Immigration & Citizenship <i class='bx bxs-plane-take-off' style="font-size: 35px;"></i></p></h2>
+            <h2 class="text-3xl font-bold text-center mb-2"><p style="font-family: Dubai;">Our Best Immigration <i class='bx bxs-plane-take-off' style="font-size: 35px;"></i></p></h2>
             <p class="text-gray-600 text-center mb-8" >Choose your country</p>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-2" id="gridcells">
                 <div class="text-center">
                     <a href="us.html">
                     <img src="usa.png" alt="USA" class="mx-auto">
@@ -198,14 +200,14 @@
                 </div>
                 <div class="text-center">
                     <a href="newz.html">
-                    <img src="newzealand.png" alt="New Zealand" class="mx-auto">
-                    <h3 class="text-xl font-bold mt-4">New Zealand</h3>
+                    <img src="poland.png" alt="New Zealand" class="mx-auto">
+                    <h3 class="text-xl font-bold mt-4">Poland</h3>
                     </a>
                 </div>
                 <div class="text-center">
                     <a href="sgp.html">
-                    <img src="singapore.png" alt="Singapore" class="mx-auto">
-                    <h3 class="text-xl font-bold mt-4">Singapore</h3>
+                    <img src="ireland.png" alt="Singapore" class="mx-auto">
+                    <h3 class="text-xl font-bold mt-4">Ireland</h3>
                     </a>
                 </div>
                 <div class="text-center">
@@ -264,7 +266,7 @@
 
     
     <!-- Footer -->
-    <footer class="bg-blue-600 p-4 text-center text-white">
+    <footer class="p-4 text-center text-white">
         <div class="footer-links">
             <div class="footer-links1"> 
                 <h3 class="text-lg font-bold mb-2">Quick Links</h3>
@@ -289,7 +291,7 @@
                 <div class="footer-social">
                     <a href="#" target="_blank"><i class="bx bxl-facebook-square"></i></a>
                     <a href="#" target="_blank"><i class="bx bxl-twitter"></i></a>
-                    <a href="#" target="_blank"><i class="bx bxl-instagram"></i></a>
+                    <a href="https://www.instagram.com/aim.ed_overseas?igsh=bjQ5a2hzNDdkY2d2&utm_source=qr" target="_blank"><i class="bx bxl-instagram"></i></a>
                     <a href="#" target="_blank"><i class="bx bxl-linkedin"></i></a>
                 </div>
             </div>

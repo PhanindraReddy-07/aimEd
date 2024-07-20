@@ -22,7 +22,7 @@
         #frgtpwd{
             color: red;
         }
-        #button{
+        #login-button, #signup-button{
             background-color: rgba(0, 0, 255, 0.708);
             margin:10px;
             margin-left: 130px;
@@ -36,13 +36,6 @@
             margin: 10px;
             border-radius: 5px;
             color: #fff;
-            display: none;
-        }
-        .success {
-            color: #4CAF50;
-        }
-        .error {
-            color: #f44336;
         }
         @media only screen and (max-width:768px){
             #login h1{
@@ -54,7 +47,7 @@
             #login input{
                 margin-left:30px;
             }
-            #button{
+            #login-button, #signup-button{
                 margin-left: 73px;
             }
             
@@ -74,7 +67,7 @@
         <!-- Navbar -->
         <nav class="bg-blue-600 p-4" id="navbar">
             <div class="container mx-auto flex justify-between items-center">
-                <a href="#" class="text-white text-2xl font-bold">AimEd Abroad Services</a>
+                <a href="#" class="text-white text-2xl font-bold"><img src="logo.png"></a>
                 <button class="pl-2 text-white block md:hidden focus:outline-none" id="buttonUl" onclick="openUl()">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
@@ -93,17 +86,17 @@
    <section id="login" class="py-12">
     <div class="items-center">
         <div>
-            <h1 style="font-size:20px; font-weight: 700; margin-bottom:15px;" onsubmit="login(event)">LOGIN</h1>
-            <form id="login-form" class="bg-white p-6 rounded shadow ml-10 mr-5">
+            <h1 style="font-size:20px; font-weight: 700; margin-bottom:15px;">LOGIN</h1>
+            <form id="login-form" class="bg-white p-6 rounded shadow ml-10 mr-5" onsubmit="login(event)">
                 <label for="login-username" style="margin-left: 20px;"><strong>Username:</strong></label>
                 <input type="text" id="login-username" name="username" required><br>
                 <label for="login-password" style="margin-left: 20px;"><strong>Password:</strong></label>
                 <input type="password" id="login-password" name="password" required><br>
                 <button type="submit" id="login-button">Login</button>
-                <div id="login-message" class="message"></div>
+                <div id="login-message" class="message" style="display: none;"></div>
                 <div class="flex flex-col md:flex-row">
-                    <p class="pr-5" id="frgtpwd">Forgot Password?</p>
-                    <p>Don't have an account <a href="#" style="text-decoration: underline; color:rgb(6, 43, 255)">Signup..!</a></p>
+                    <p class="pr-3" id="frgtpwd">Forgot Password?</p>
+                    <p>Don't have an account <a href="#" style="text-decoration: underline; color:rgb(6, 43, 255)">Signup<i class='bx bxs-down-arrow-alt'></i></a></p>
                 </div>
             </form>
         </div>
@@ -121,13 +114,13 @@
                 <label for="signup-password" style="margin-left: 20px;"><strong>Password:</strong></label>
                 <input type="password" id="signup-password" name="password" required><br>
                 <button type="submit" id="signup-button">Signup</button>
-                <div id="signup-message" class="message"></div>
+                <div id="signup-message" class="message" style="display: none;"></div>
             </form>
         </div>
     </div>
 </section>
     <!-- Footer -->
-<footer class="bg-blue-600 p-4 text-center text-white">
+<footer class="p-4 text-center text-white">
         <div class="footer-links">
             <div class="footer-links1"> 
                 <h3 class="text-lg font-bold mb-2">Quick Links</h3>
@@ -152,7 +145,7 @@
                 <div class="footer-social">
                     <a href="#" target="_blank"><i class="bx bxl-facebook-square"></i></a>
                     <a href="#" target="_blank"><i class="bx bxl-twitter"></i></a>
-                    <a href="#" target="_blank"><i class="bx bxl-instagram"></i></a>
+                    <a href="https://www.instagram.com/aim.ed_overseas?igsh=bjQ5a2hzNDdkY2d2&utm_source=qr" target="_blank"><i class="bx bxl-instagram"></i></a>
                     <a href="#" target="_blank"><i class="bx bxl-linkedin"></i></a>
                 </div>
             </div>
@@ -200,44 +193,40 @@
         }
         function login(event) {
             event.preventDefault(); // Prevent default form submission
-            
-            // Get form values
+        
             const username = document.getElementById('login-username').value;
             const password = document.getElementById('login-password').value;
             const responseMessage = document.getElementById('login-message');
-
-            // Send form data to server
+        
             fetch('/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({
-                    username,
-                    password
-                })
+                body: JSON.stringify({ username, password })
             })
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
-                    responseMessage.textContent = 'Login Successful!';
-                    responseMessage.classList.add('text-green-500');
-                    responseMessage.classList.remove('text-red-500');
+                    window.location.href = data.redirect; // Redirect to dashboard
                 } else {
-                    responseMessage.textContent = 'Invalid credentials';
-                    responseMessage.classList.add('text-red-500');
-                    responseMessage.classList.remove('text-green-500');
+                    responseMessage.textContent = 'Invalid Credentials';
+                    responseMessage.style.display = 'block';
+                    responseMessage.style.color = 'red';
                 }
             })
             .catch(error => {
+                console.error('Error:', error);
                 responseMessage.textContent = 'Server Error';
-                responseMessage.classList.add('text-red-500');
-                responseMessage.classList.remove('text-green-500');
+                responseMessage.style.display = 'block';
+                responseMessage.style.color = 'red';
             });
         }
+        
+        
         function signup(event) {
             event.preventDefault(); // Prevent default form submission
-            
+        
             // Get form values
             const fullname = document.getElementById('signup-fullname').value;
             const email = document.getElementById('signup-email').value;
@@ -245,7 +234,7 @@
             const username = document.getElementById('signup-username').value;
             const password = document.getElementById('signup-password').value;
             const responseMessage = document.getElementById('signup-message');
-
+        
             // Send form data to server
             fetch('/signup', {
                 method: 'POST',
@@ -264,20 +253,22 @@
             .then(data => {
                 if (data.success) {
                     responseMessage.textContent = 'Signup Successful!';
-                    responseMessage.classList.add('text-green-500');
-                    responseMessage.classList.remove('text-red-500');
+                    responseMessage.style.color='green';
                 } else {
-                    responseMessage.textContent = 'Fill all the fields';
-                    responseMessage.classList.add('text-red-500');
-                    responseMessage.classList.remove('text-green-500');
+                    responseMessage.textContent = 'Failed to signup';
+                    responseMessage.style.color='red';
                 }
+                responseMessage.style.display = 'block';
+                
             })
             .catch(error => {
+                console.error('Error:', error);
                 responseMessage.textContent = 'Server Error';
-                responseMessage.classList.add('text-red-500');
-                responseMessage.classList.remove('text-green-500');
+                responseMessage.style.display = 'block';
+                responseMessage.style.color='red';
             });
         }
+        
         </script>
 </body>
 </html>
