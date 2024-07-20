@@ -28,26 +28,36 @@
             background-color:purple;
             color:white;
         }
+        #abtus{
+            background-image: linear-gradient(rgba(141, 127, 127, 0.313),rgba(141, 114, 114, 0.313)),url("image1.jpg");
+        }
+        #login  input{
+        outline: none;
+        margin: 10px;
+        border: 1px solid black;
+        }
         @media only screen and (max-width:786px){
             #catg div{
                 margin: 0;
             }
             #imgctz img{
-                width: 150px;
+                width: 130px;
                 height: 130px;
             }
             #abtimg{
                 margin: 0;
             }
+            #abtp{
+                display: none;
+            }
         }
     </style>
 </head>
 <body class="bg-gray-100">
-    
     <!-- Navbar -->
     <nav class="bg-blue-600 p-4" id="navbar">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="#" class="text-white text-2xl font-bold">AimEd Abroad Services</a>
+            <a href="index.html" class="text-white text-2xl font-bold">AimEd Abroad Services</a>
             <button class="pl-2 text-white block md:hidden focus:outline-none" id="buttonUl" onclick="openUl()">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
@@ -59,6 +69,7 @@
                 <li><a href="services.html" class="text-white" id="li-2">Services</a></li>
                 <li><a href="aboutus.html" class="text-white" id="li-3">About Us</a></li>
                 <li><a href="contact.html" class="text-white" id="li-4">Contact</a></li>
+                <li><a href="login.html" class="text-white" id="li-5">Login</a></li>
             </ul>
         </div>
     </nav>
@@ -80,7 +91,7 @@
             <div class="text-center text-white px-4 md:px-0">
                 <h1 class="text-4xl md:text-5xl font-bold">Welcome to AimEd Abroad Services</h1>
                 <p class="text-lg md:text-xl mt-4">Your gateway to studying abroad</p>
-                <a href="contact.html" class="mt-8 inline-block bg-blue-600 text-white py-2 px-4 rounded">Contact Us</a>
+                <a href="login.html" class="mt-8 inline-block bg-blue-600 text-white py-2 px-4 rounded">Get Started</a>
             </div>
         </div>
     </section>
@@ -137,19 +148,19 @@
         </div>
     </section>
 <!-- About Us Section -->
-<section class="py-16">
+<section class="py-10" id="abtus">
     <div class="container mx-auto px-4">
         <h2 class="text-3xl font-bold text-center mb-8">ABOUT US</h2>
         <div class="flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 md:pl-8 mt-8 md:mt-0">
+                <p class="text-black" style="font-family: Dubai; font-size:20px;">AimEd is an innovative, progressive, successful, and professionally managed company focused on one of the core sectors of the economy – Overseas Education. 
+                    AimEd is owned and managed by professionals with proven credentials in the industry. AimEd is an undisputed company and a leader in terms of quality, innovative products, and services.
+                    AimEd acts as an internationally recognized support system for 21st-century education for bridging the education divide.<p class="text-black" style="font-family: Dubai; font-size:20px;" id="abtp">
+                    AimEd recognizes that the Bachelor’s/Master’s programs by various foreign universities/colleges, professional development programs, and academic partnerships between foreign universities/colleges and Indian institutions are extremely useful in meeting the rapidly growing Indian educational needs.
+                    These programs contribute to the goal of preparing students to compete in the global economy. AimEd is working closely with more than 250 universities in the USA, UK, Australia, New Zealand, Canada, Singapore, France, and Germany to meet the ever-growing demand for overseas education.</p><a href="aboutus.html" style="text-decoration: underline; color:blue;">read more..</a></p>
+            </div>
             <div class="md:w-1/2 ml-40" id="abtimg">
                 <img src="https://via.placeholder.com/500x500" alt="About Us" class="rounded shadow">
-            </div>
-            <div class="md:w-1/2 md:pl-8 mt-8 md:mt-0">
-                <p class="text-gray-700">AimEd is an innovative, progressive, successful, and professionally managed company focused on one of the core sectors of the economy – Overseas Education. 
-                    AimEd is owned and managed by professionals with proven credentials in the industry. AimEd is an undisputed company and a leader in terms of quality, innovative products, and services.
-                    AimEd acts as an internationally recognized support system for 21st-century education for bridging the education divide. 
-                    AimEd recognizes that the Bachelor’s/Master’s programs by various foreign universities/colleges, professional development programs, and academic partnerships between foreign universities/colleges and Indian institutions are extremely useful in meeting the rapidly growing Indian educational needs.
-                    These programs contribute to the goal of preparing students to compete in the global economy. AimEd is working closely with more than 250 universities in the USA, UK, Australia, New Zealand, Canada, Singapore, France, and Germany to meet the ever-growing demand for overseas education.<a href="aboutus.html" style="text-decoration: underline; color:blue;">read more..</a></p>
             </div>
         </div>
     </div>
@@ -160,7 +171,7 @@
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-center mb-2"><p style="font-family: Dubai;">Our Best Immigration & Citizenship <i class='bx bxs-plane-take-off' style="font-size: 35px;"></i></p></h2>
             <p class="text-gray-600 text-center mb-8" >Choose your country</p>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
                 <div class="text-center">
                     <a href="us.html">
                     <img src="usa.png" alt="USA" class="mx-auto">

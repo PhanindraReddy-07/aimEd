@@ -5,7 +5,7 @@ body{
         #navbar i{
             display: none;
         }
-        #navbar a{
+        #navbar a, button{
             animation: fadeIn .7s ease-in-out;
         }
         .carousel {
